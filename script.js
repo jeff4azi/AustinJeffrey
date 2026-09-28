@@ -28,9 +28,11 @@ function setIntent(intent, { scroll = false } = {}) {
   }
 }
 buttons.forEach((b) =>
-  b.addEventListener("click", () =>
-    setIntent(b.dataset.intent, { scroll: true }),
-  ),
+  b.addEventListener("click", () => {
+    setIntent(b.dataset.intent, { scroll: true });
+    if (typeof gtag === "function")
+      gtag("event", "select_intent", { intent: b.dataset.intent });
+  }),
 );
 try {
   const s = sessionStorage.getItem("intent");
@@ -72,3 +74,24 @@ if (
     io.observe(el);
   });
 }
+
+/* click_live_site: any link to a product's or client's live URL */
+document.querySelectorAll("a.live, a.visit").forEach((a) => {
+  a.addEventListener("click", () => {
+    if (typeof gtag === "function")
+      gtag("event", "click_live_site", {
+        link_url: a.href,
+        link_text: a.textContent.trim(),
+      });
+  });
+});
+
+/* contact_click: email / whatsapp / github / tiktok / youtube / linkedin icons */
+document.querySelectorAll(".contact a").forEach((a) => {
+  a.addEventListener("click", () => {
+    if (typeof gtag === "function")
+      gtag("event", "contact_click", {
+        method: a.getAttribute("aria-label") || a.href,
+      });
+  });
+});

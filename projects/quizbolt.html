@@ -33,6 +33,20 @@
     />
     <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png" />
     <link rel="stylesheet" href="../style.css?v=3" />
+    <!-- Google Analytics: replace G-Y39YP6J1M5 with your Measurement ID -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-Y39YP6J1M5"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-Y39YP6J1M5");
+      gtag("event", "view_project", { project: "quizbolt" });
+    </script>
   </head>
   <body class="page">
     <header class="nav">

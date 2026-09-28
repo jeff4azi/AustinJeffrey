@@ -28,6 +28,8 @@
     opener = img;
     big.src = img.currentSrc || img.src;
     big.alt = img.alt;
+    if (typeof gtag === "function")
+      gtag("event", "view_screenshot", { image: img.alt || img.src });
     ov.hidden = false;
     ov.style.display = "flex";
     document.documentElement.style.overflow = "hidden";
