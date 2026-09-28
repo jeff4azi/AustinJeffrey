@@ -133,9 +133,3 @@ footer a{margin-right:1rem;text-decoration:none}
 
 /* screenshots open full size in an overlay (lightbox.js) */
 .shot{aspect-ratio:1902/993}
-html.lb-open{overflow:hidden}
-.lb{border:0;background:transparent;padding:0;max-width:96vw;max-height:96vh;overflow:visible}
-.lb::backdrop{background:rgba(10,10,10,.94)}
-.lb img{display:block;max-width:96vw;max-height:88vh;width:auto;height:auto;border:1px solid var(--line)}
-.lb button{position:fixed;top:1rem;right:1rem;width:48px;height:48px;font-size:1.6rem;line-height:1;color:var(--white);background:var(--black);border:1px solid var(--line);cursor:pointer}
-.lb button:hover{border-color:var(--accent);color:var(--accent)}
